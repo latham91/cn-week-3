@@ -89,8 +89,9 @@ main {
             }
 
             .grid-item-key {
-                font-size: 80px;
+                font-size: 40px;
                 font-weight: 500;
+                margin: 40px;
             }
 
             p {
