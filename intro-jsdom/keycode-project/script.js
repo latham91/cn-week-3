@@ -23,4 +23,8 @@ window.addEventListener("keydown", (e) => {
     } else {
         eventLocation.textContent = "Unknown";
     }
+
+    if (e.key === " ") {
+        eventKey.textContent = "Blank";
+    }
 });
