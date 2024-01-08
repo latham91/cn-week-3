@@ -1,0 +1,78 @@
+body {
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+}
+
+#activity-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.activity-one-container {
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+    gap: 20px;
+}
+
+hr {
+    margin: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    padding: 7px 14px;
+}
+
+/* ACTIVITY 2 CSS */
+
+.activity-two-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: fit-content;
+    gap: 20px;
+}
+
+.input-activity-two {
+    padding: 10px;
+    text-align: center;
+}
+
+/* ACTIVITY 3 CSS */
+
+.activity-three-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: fit-content;
+    gap: 20px;
+}
+
+.activity-three-heading {
+    font-size: 35px;
+    border: 2px solid black;
+    padding: 20px 40px;
+    margin: 10px 0;
+}
+
+.input-activity-three {
+    padding: 10px;
+    text-align: center;
+}
+
+/* ACTIVITY 4 CSS */
+
+.activity-four-coords {
+    font-size: 35px;
+    font-weight: bold;
+}

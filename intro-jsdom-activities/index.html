@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Intro to JS DOM</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <h1>Intro to JS DOM</h1>
+
+        <div id="activity-container">
+            <div>
+                <h2>ACTIVITY 1</h2>
+                <p>
+                    Create an image and a button, Make a toggle so when you click the button it hides the image, and
+                    when you click it again it shows the image
+                </p>
+            </div>
+            <div class="activity-one-container">
+                <img
+                    src="https://i.pinimg.com/236x/1d/c4/be/1dc4be2f5aa89da7a016e734e5e7b07c.jpg"
+                    alt="random cat image"
+                    height="300px"
+                    width="300px"
+                    class="img-activity-one"
+                />
+                <button class="btn-activity-one">HIDE</button>
+            </div>
+        </div>
+
+        <hr />
+
+        <div id="activity-container">
+            <div>
+                <h2>ACTIVITY 2</h2>
+                <p>
+                    Create an image, button and input that changes the source of the image to whatever image url is
+                    inside the input box when the button is clicked.
+                </p>
+            </div>
+                <div class="activity-two-container">
+                    <img
+                        src="https://i.pinimg.com/236x/1d/c4/be/1dc4be2f5aa89da7a016e734e5e7b07c.jpg"
+                        width="300px"
+                        height="300px"
+                        alt="random image"
+                        class="img-activity-two"
+                    />
+                    <input class="input-activity-two" type="text" placeholder="Enter image URL here" />
+                    <button class="btn-activity-two">Change Image</button>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div id="activity-container">
+            <div>
+                <h2>ACTIVITY 3</h2>
+                <p>
+                    Create a header, button and input, Change the text colour of the heading to whatever is typed into the input when the button is clicked.
+                </p>
+            </div>
+                <div class="activity-three-container">
+                    <h3 class="activity-three-heading">HEADING</h3>
+                    <input class="input-activity-three" type="text" placeholder="Enter colour here" />
+                    <button class="btn-activity-three">Change Colour</button>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div id="activity-container">
+            <div>
+                <h2>ACTIVITY 4</h2>
+                <p>
+                    Using event object, get the x and y coordinates of where you click on the page and display the values in a p tag.
+                </p>
+            </div>
+                <div class="activity-three-container">
+                    <p class="activity-four-coords">X: 0, Y: 0</p>
+                </div>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
