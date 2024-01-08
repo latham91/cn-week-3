@@ -30,7 +30,7 @@ window.addEventListener("keydown", (e) => {
     }
 });
 
-mobileInput.addEventListener("onchange", (e) => {
+mobileInput.addEventListener("keydown", (e) => {
     eventKey.textContent = e.key;
     eventCode.textContent = e.code;
     eventWhich.textContent = e.which;
