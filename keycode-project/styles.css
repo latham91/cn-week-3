@@ -107,6 +107,18 @@ main {
         font-size: 20px;
         animation: pulse 2s infinite;
     }
+
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 10px 20px 10px;
+        display: none;
+
+        .mobileInput {
+            padding: 10px;
+            text-align: center;
+        }
+    }
 }
 
 @keyframes pulse {
@@ -129,6 +141,10 @@ main {
 
         .info-grid {
             grid-template-columns: repeat(2, 1fr);
+        }
+
+        .input-container {
+            display: flex;
         }
     }
 }
