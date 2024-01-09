@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>2 Player Dice Game</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <main>
+            <div class="bgLeft">
+                <h2>Player 1</h2>
+                <span id="playerOneScore">0</span>
+
+                <div class="leftScoreContainer">
+                    <p>CURRENT SCORE</p>
+                    <span id="playerOneCurrentScore">0</span>
+                </div>
+            </div>
+            <div class="bgMiddle">
+                <button id="restartButton" disabled>Restart</button>
+                <div>
+                    <img id="diceImage" src="./images/dice-1.png" alt="dice image" height="300px" width="300px" />
+                </div>
+                <h2 class="playerTurnHeading">Player 1 to Roll</h2>
+                <button id="rollButton">Roll</button>
+                <button id="holdButton">Hold</button>
+            </div>
+            <div class="bgRight">
+                <h2>Player 2</h2>
+                <span id="playerTwoScore">0</span>
+
+                <div class="rightScoreContainer">
+                    <p>CURRENT SCORE</p>
+                    <span id="playerTwoCurrentScore">0</span>
+                </div>
+            </div>
+        </main>
+
+        <script src="script.js"></script>
+    </body>
+</html>
