@@ -17,7 +17,6 @@ const snareAnim = document.querySelector(".snare-top");
 const tomAnim = document.querySelector(".tom-top");
 
 document.addEventListener("keypress", (e) => {
-    console.log(e.keyCode);
     if (e.keyCode === 65 || e.keyCode === 97) {
         bassAnim.style.animation = "bass 0.2s linear";
 
