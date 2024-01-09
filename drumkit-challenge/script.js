@@ -15,6 +15,72 @@ const rideAnimTop = document.querySelector(".ride-symbal-top");
 const rideAnimBottom = document.querySelector(".ride-symbal-bottom");
 const snareAnim = document.querySelector(".snare-top");
 const tomAnim = document.querySelector(".tom-top");
+const snareBody = document.querySelector(".snare-body-outer");
+const tomBody = document.querySelector(".tom-body-outer");
+
+bassAnim.addEventListener("click", () => {
+    bassAnim.style.animation = "bass 0.2s linear";
+
+    setTimeout(() => {
+        bassAnim.style.removeProperty("animation");
+    }, 200); // Removes animation after 200ms
+
+    boom.pause();
+    boom.currentTime = 0;
+    boom.play();
+});
+
+hihatAnimBottom.addEventListener("click", () => {
+    hihatAnimTop.style.animation = "hihatTopRotate 0.2s linear";
+    hihatAnimBottom.style.animation = "hihatBottomRotate 0.2s linear";
+
+    setTimeout(() => {
+        hihatAnimTop.style.removeProperty("animation");
+        hihatAnimBottom.style.removeProperty("animation");
+    }, 200); // Removes animation after 200ms
+
+    hihat.pause();
+    hihat.currentTime = 0;
+    hihat.play();
+});
+
+rideAnimBottom.addEventListener("click", () => {
+    rideAnimTop.style.animation = "rideRotate 0.2s linear";
+    rideAnimBottom.style.animation = "rideRotate 0.2s linear";
+
+    setTimeout(() => {
+        rideAnimTop.style.removeProperty("animation");
+        rideAnimBottom.style.removeProperty("animation");
+    }, 200); // Removes animation after 200ms
+
+    ride.pause();
+    ride.currentTime = 0;
+    ride.play();
+});
+
+snareBody.addEventListener("click", () => {
+    snareAnim.style.animation = "tomShake 0.2s linear";
+
+    setTimeout(() => {
+        snareAnim.style.removeProperty("animation");
+    }, 200); // Removes animation after 200ms
+
+    snare.pause();
+    snare.currentTime = 0;
+    snare.play();
+});
+
+tomBody.addEventListener("click", () => {
+    tomAnim.style.animation = "tomShake 0.2s linear";
+
+    setTimeout(() => {
+        tomAnim.style.removeProperty("animation");
+    }, 200); // Removes animation after 200ms
+
+    tom.pause();
+    tom.currentTime = 0;
+    tom.play();
+});
 
 document.addEventListener("keypress", (e) => {
     if (e.keyCode === 65 || e.keyCode === 97) {
