@@ -163,7 +163,7 @@ lowerButton.addEventListener("click", () => {
         }, 2000);
     }
 
-    if (cardValues.indexOf(rightCard.value) >= cardValues.indexOf(leftCard.value)) {
+    if (cardValues.indexOf(rightCard.value) > cardValues.indexOf(leftCard.value)) {
         // If right is higher than left, lose the game. and reset the score.
         score = 0;
         scoreHeading.textContent = "You Lose!";
