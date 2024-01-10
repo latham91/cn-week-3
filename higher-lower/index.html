@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Higher or Lower</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>Higher or Lower</h1>
+        <p>
+            Guess if the next card is higher or lower.<br />
+            ACE counts as 1. JACK counts as 11. QUEEN counts as 12. KING counts as 13.
+        </p>
+        <div id="scoreHeading">SCORE: 0</div>
+
+        <main>
+            <div class="cardsContainer">
+                <div class="card">
+                    <div class="cardValueLeft leftCardValue">A</div>
+                    <div class="cardSuit leftCardSuit">♠</div>
+                    <div class="cardValueRight leftCardValue">A</div>
+                </div>
+                <div class="cardRight">
+                    <div class="cardValueLeft rightCardValue"></div>
+                    <div class="cardSuit rightCardSuit"></div>
+                    <div class="cardValueRight rightCardValue"></div>
+                </div>
+            </div>
+            <div class="buttonContainer">
+                <button id="btnHigher">HIGHER</button>
+                <button id="btnRestart">RESTART</button>
+                <button id="btnLower">LOWER</button>
+            </div>
+        </main>
+
+        <script src="script.js"></script>
+    </body>
+</html>

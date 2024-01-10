@@ -1,0 +1,115 @@
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+#scoreHeading {
+    text-align: center;
+    font-size: 35px;
+    padding: 20px;
+}
+
+.cardsContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: fit-content;
+    gap: 100px;
+    margin-bottom: 50px;
+}
+
+.card {
+    position: relative;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    height: 300px;
+    width: 200px;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardRight {
+    position: relative;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    height: 300px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: "skyblue";
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardValueLeft {
+    position: absolute;
+    font-size: 35px;
+    top: 10px;
+    left: 10px;
+}
+
+.cardValueRight {
+    position: absolute;
+    font-size: 35px;
+    bottom: 10px;
+    right: 10px;
+}
+
+.cardSuit {
+    font-size: 35px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid #222222;
+    background-color: white;
+    color: #222222;
+    box-shadow: 5px 5px 0 #222222;
+    font-size: 20px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #222222;
+        color: white;
+    }
+
+    &:active {
+        box-shadow: 2px 2px 0 #222222;
+        transform: translate(3px, 3px);
+    }
+
+    &:disabled {
+        background-color: #cccccc;
+        color: #666666;
+        border-color: #666666;
+        box-shadow: 5px 5px 0 #666666;
+        cursor: not-allowed;
+    }
+}
