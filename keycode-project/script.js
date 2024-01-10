@@ -1,3 +1,4 @@
+// Element selector variables
 const eventKey = document.querySelector(".event-key");
 const eventCode = document.querySelector(".event-code");
 const eventWhich = document.querySelector(".event-which");
@@ -47,16 +48,18 @@ const charKeyCodes = {
     SPACE: 32,
     ENTER: 13,
     BACKSPACE: 8,
-    // Add more as needed...
+    // Needed to add these for the mobile version because the event object wasnt working on mobile.
 };
 
 window.addEventListener("keydown", (e) => {
+    // Set the text of elements
     eventKey.textContent = e.key;
     eventCode.textContent = e.code;
     eventWhich.textContent = e.which;
     codeH1.textContent = `Key Code: ${e.keyCode}`;
     codeH2.textContent = e.keyCode;
 
+    // Manually setting the location of the keys because e.location just returns a number.
     if (e.location === 0) {
         eventLocation.textContent = "Standard";
     } else if (e.location === 1) {
@@ -69,12 +72,14 @@ window.addEventListener("keydown", (e) => {
         eventLocation.textContent = "Unknown";
     }
 
+    // If the key is a space, set the text to "Blank"
     if (e.key === " ") {
         eventKey.textContent = "Blank";
     }
 });
 
 mobileInput.addEventListener("input", (e) => {
+    // Set the text of elements
     eventKey.textContent = e.data;
     eventCode.textContent = charKeyCodes[e.data];
     eventWhich.textContent = e.which;
@@ -82,12 +87,12 @@ mobileInput.addEventListener("input", (e) => {
     codeH2.textContent = e.keyCode;
     eventLocation.textContent = "Standard";
 
-    console.log(e);
-
+    // If the key is a space, set the text to "Blank"
     if (e.key === " ") {
         eventKey.textContent = "Blank";
     }
 
+    // If the input is empty, set the text to "Blank"
     if (!e.target.value) {
         eventKey.textContent = "Blank";
     }
