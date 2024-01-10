@@ -16,24 +16,8 @@ const suitColors = ["black", "black", "red", "red"];
 let score = 0;
 
 // Functions
-const generateStartingCards = () => {
-    const leftCard = generateCard();
-    const rightCard = generateCard();
-
-    leftCardValue.forEach((element) => {
-        element.textContent = leftCard.value;
-        element.style.color = leftCard.color;
-    });
-
-    leftCardSuit.forEach((element) => {
-        element.textContent = leftCard.suit;
-        element.style.color = leftCard.color;
-    });
-
-    rightCardElement.style.backgroundColor = "skyblue";
-};
-
 const generateCard = () => {
+    // This function just creates a new random card.
     const randomSuit = Math.floor(Math.random() * 4);
     const randomValue = Math.floor(Math.random() * 12);
 
@@ -45,6 +29,7 @@ const generateCard = () => {
 };
 
 const changeRightCard = (rightCard) => {
+    // This changes the right card styles to the values of rightCard object.
     rightCardValue.forEach((element) => {
         element.textContent = rightCard.value;
         element.style.color = rightCard.color;
@@ -57,6 +42,7 @@ const changeRightCard = (rightCard) => {
 };
 
 const changeLeftCard = (leftCard) => {
+    // This changes the left card styles to the values of leftCard object.
     leftCardValue.forEach((element) => {
         element.textContent = leftCard.value;
         element.style.color = leftCard.color;
@@ -70,6 +56,7 @@ const changeLeftCard = (leftCard) => {
 
 // Event Listeners
 restartButton.addEventListener("click", () => {
+    // Reset the score and change the right card back to default.
     score = 0;
     scoreHeading.textContent = `SCORE: ${score}`;
 
@@ -89,7 +76,32 @@ restartButton.addEventListener("click", () => {
 });
 
 higherButton.addEventListener("click", () => {
-    if (cardValues.indexOf(rightCard.value) <= cardValues.indexOf(leftCard.value)) {
+    // If both cards are the same, just change the right card and reset the buttons.
+    if (cardValues.indexOf(rightCard.value) === cardValues.indexOf(leftCard.value)) {
+        higherButton.disabled = true;
+        lowerButton.disabled = true;
+
+        rightCardElement.style.backgroundColor = "white";
+        changeRightCard(rightCard);
+
+        setTimeout(() => {
+            leftCard = rightCard;
+            changeLeftCard(leftCard);
+
+            rightCard = generateCard();
+            rightCardElement.style.backgroundColor = "skyblue";
+            rightCardElement.childNodes.forEach((element) => {
+                element.textContent = "";
+                element.color = "white";
+            });
+
+            higherButton.disabled = false;
+            lowerButton.disabled = false;
+        }, 2000);
+    }
+
+    if (cardValues.indexOf(rightCard.value) < cardValues.indexOf(leftCard.value)) {
+        // If right is lower than left, lose the game. and reset the score.
         score = 0;
         scoreHeading.textContent = "You Lose!";
 
@@ -99,6 +111,7 @@ higherButton.addEventListener("click", () => {
         rightCardElement.style.backgroundColor = "white";
         changeRightCard(rightCard);
     } else {
+        // If right is higher than left, add 1 to the score and change the cards.
         score++;
         scoreHeading.textContent = `SCORE: ${score}`;
 
@@ -126,7 +139,32 @@ higherButton.addEventListener("click", () => {
 });
 
 lowerButton.addEventListener("click", () => {
+    // If both cards are the same, just change the right card and reset the buttons.
+    if (cardValues.indexOf(rightCard.value) === cardValues.indexOf(leftCard.value)) {
+        higherButton.disabled = true;
+        lowerButton.disabled = true;
+
+        rightCardElement.style.backgroundColor = "white";
+        changeRightCard(rightCard);
+
+        setTimeout(() => {
+            leftCard = rightCard;
+            changeLeftCard(leftCard);
+
+            rightCard = generateCard();
+            rightCardElement.style.backgroundColor = "skyblue";
+            rightCardElement.childNodes.forEach((element) => {
+                element.textContent = "";
+                element.color = "white";
+            });
+
+            higherButton.disabled = false;
+            lowerButton.disabled = false;
+        }, 2000);
+    }
+
     if (cardValues.indexOf(rightCard.value) >= cardValues.indexOf(leftCard.value)) {
+        // If right is higher than left, lose the game. and reset the score.
         score = 0;
         scoreHeading.textContent = "You Lose!";
 
@@ -136,6 +174,7 @@ lowerButton.addEventListener("click", () => {
         rightCardElement.style.backgroundColor = "white";
         changeRightCard(rightCard);
     } else {
+        // If right is lower than left, add 1 to the score and change the cards.
         score++;
         scoreHeading.textContent = `SCORE: ${score}`;
 
