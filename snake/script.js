@@ -69,3 +69,12 @@ const moveSnake = () => {
         snake.pop();
     }
 };
+
+const drawRestart = () => {
+    ctx.fillStyle = "black";
+    ctx.font = "40px Monospace";
+    // Fill in center of grid
+    ctx.fillText("Game Over!", 32 * 16, 32 * 16);
+    ctx.fillText(`Score: ${score}`, 32 * 16, 32 * 18);
+    ctx.fillText("Press R to restart", 32 * 13, 32 * 20);
+};
