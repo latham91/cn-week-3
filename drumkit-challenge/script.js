@@ -1,3 +1,4 @@
+// Element selectors
 const boom = document.getElementById("boom-wav");
 const clap = document.getElementById("clap-wav");
 const hihat = document.getElementById("hihat-wav");
@@ -20,6 +21,7 @@ const tomBody = document.querySelector(".tom-body-outer");
 const keysContainer = document.querySelector(".keys-container");
 
 // Refactor
+// Functions for playing sounds
 const playBase = () => {
     bassAnim.style.animation = "bass 0.2s linear";
 
@@ -122,6 +124,7 @@ const playTom = () => {
     tom.play();
 };
 
+// Mapping over child nodes of the key container and adds event listener to each key.
 keysContainer.childNodes.forEach((key, index) => {
     key.addEventListener("click", () => {
         switch (index) {
@@ -163,6 +166,7 @@ rideAnimBottom.addEventListener("click", playRide);
 snareBody.addEventListener("click", playSnare);
 tomBody.addEventListener("click", playTom);
 
+// Key press events for each button in lower and caps lock.
 document.addEventListener("keypress", (e) => {
     if (e.keyCode === 65 || e.keyCode === 97) {
         playBase();
