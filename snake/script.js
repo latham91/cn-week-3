@@ -21,3 +21,15 @@ let food = {
 
 let score = 0;
 let direction = "up";
+
+const drawSnake = () => {
+    snake.forEach((segment) => {
+        ctx.fillStyle = `rgba(0, 255, 0, ${1 - (snake.indexOf(segment) / snake.length) * 0.5})`;
+        ctx.fillRect(segment.x, segment.y, grid, grid);
+    });
+};
+
+const drawFood = () => {
+    ctx.fillStyle = "red";
+    ctx.fillRect(food.x, food.y, grid, grid);
+};
