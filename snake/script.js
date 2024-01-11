@@ -94,3 +94,20 @@ const gameOver = () => {
 
     return false;
 };
+
+const gameLoop = () => {
+    if (gameOver()) {
+        return;
+    }
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    drawSnake();
+    drawFood();
+    drawScore();
+    moveSnake();
+
+    setTimeout(gameLoop, 100);
+};
+
+gameLoop();
