@@ -1,6 +1,7 @@
 body {
     font-family: sans-serif;
     text-align: center;
+    padding: 30px;
 }
 
 h1 {
@@ -11,13 +12,90 @@ h2 {
     font-size: 25px;
 }
 
+img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #222222;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    width: 100%;
+
+    &:hover {
+        background-color: #333333;
+    }
+}
+
 ul {
     list-style-type: none;
     padding: 0;
     font-size: 20px;
     margin-top: 50px;
 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    li {
+        border: 2px solid black;
+        border-radius: 10px;
+        overflow: hidden;
+
+        h2 {
+            background-color: #222222;
+            margin: 0;
+            padding: 10px;
+            color: white;
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonContainer {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: flex-end;
+    gap: 5px;
+    padding: 20px;
+    background-color: #dfdfdf;
+    overflow: hidden;
+    border-top: 2px solid #222222;
+}
+
+.repoLink {
+    color: #222222;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 50px;
+
+    &:hover {
+        color: #333333;
+        text-decoration: underline;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    ul {
+        grid-template-columns: 1fr;
+    }
 }
