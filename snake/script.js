@@ -13,12 +13,14 @@ const snake = [
     },
 ];
 
-// This is the food.
+// This is the food object
+// This has an x and y coordinate which is random.
 let food = {
     x: Math.floor(Math.random() * 32) * grid,
     y: Math.floor(Math.random() * 32) * grid,
 };
 
+// global variables
 let score = 0;
 let direction = "up";
 
@@ -73,10 +75,12 @@ const moveSnake = () => {
 const drawRestart = () => {
     ctx.fillStyle = "black";
     ctx.font = "40px Monospace";
+
     // Fill in center of grid
-    ctx.fillText("Game Over!", 32 * 16, 32 * 16);
-    ctx.fillText(`Score: ${score}`, 32 * 16, 32 * 18);
-    ctx.fillText("Press R to restart", 32 * 13, 32 * 20);
+    ctx.textAlign = "center";
+    ctx.fillText("Game Over!", canvas.width / 2, canvas.height / 2 - 40);
+    ctx.fillText(`Score: ${score}`, canvas.width / 2, canvas.height / 2);
+    ctx.fillText("Press R to restart", canvas.width / 2, canvas.height / 2 + 80);
 };
 
 const gameOver = () => {
@@ -113,13 +117,13 @@ const gameLoop = () => {
 gameLoop();
 
 document.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowUp" || event.keyCode === 87) {
+    if (event.key === "ArrowUp" || (event.keyCode === 87 && direction != "down")) {
         direction = "up";
-    } else if (event.key === "ArrowDown" || event.keyCode === 83) {
+    } else if (event.key === "ArrowDown" || (event.keyCode === 83 && direction != "up")) {
         direction = "down";
-    } else if (event.key === "ArrowLeft" || event.keyCode === 65) {
+    } else if (event.key === "ArrowLeft" || (event.keyCode === 65 && direction != "right")) {
         direction = "left";
-    } else if (event.key === "ArrowRight" || event.keyCode === 68) {
+    } else if (event.key === "ArrowRight" || (event.keyCode === 68 && direction != "left")) {
         direction = "right";
     } else if (event.key === "r" || event.keyCode === 82) {
         location.reload();
