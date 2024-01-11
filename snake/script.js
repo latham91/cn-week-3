@@ -78,3 +78,19 @@ const drawRestart = () => {
     ctx.fillText(`Score: ${score}`, 32 * 16, 32 * 18);
     ctx.fillText("Press R to restart", 32 * 13, 32 * 20);
 };
+
+const gameOver = () => {
+    if (snake[0].x < 0 || snake[0].x >= canvas.width || snake[0].y < 0 || snake[0].y >= canvas.height) {
+        drawRestart();
+        return true;
+    }
+
+    for (let i = 1; i < snake.length; i++) {
+        if (snake[0].x === snake[i].x && snake[0].y === snake[i].y) {
+            drawRestart();
+            return true;
+        }
+    }
+
+    return false;
+};
