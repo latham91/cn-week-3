@@ -111,3 +111,17 @@ const gameLoop = () => {
 };
 
 gameLoop();
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowUp" || event.keyCode === 87) {
+        direction = "up";
+    } else if (event.key === "ArrowDown" || event.keyCode === 83) {
+        direction = "down";
+    } else if (event.key === "ArrowLeft" || event.keyCode === 65) {
+        direction = "left";
+    } else if (event.key === "ArrowRight" || event.keyCode === 68) {
+        direction = "right";
+    } else if (event.key === "r" || event.keyCode === 82) {
+        location.reload();
+    }
+});
