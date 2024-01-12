@@ -23,7 +23,7 @@ const keysContainer = document.querySelector(".keys-container");
 // Refactor
 // Functions for playing sounds
 const playBase = () => {
-    bassAnim.style.animation = "bass 0.2s linear";
+    bassAnim.style.animation = "bass 0.2s linear"; // add animation
 
     setTimeout(() => {
         bassAnim.style.removeProperty("animation");
@@ -41,8 +41,8 @@ const playClap = () => {
 };
 
 const playHihat = () => {
-    hihatAnimTop.style.animation = "hihatTopRotate 0.2s linear";
-    hihatAnimBottom.style.animation = "hihatBottomRotate 0.2s linear";
+    hihatAnimTop.style.animation = "hihatTopRotate 0.2s linear"; // add animation
+    hihatAnimBottom.style.animation = "hihatBottomRotate 0.2s linear"; // add animation
 
     setTimeout(() => {
         hihatAnimTop.style.removeProperty("animation");
@@ -55,7 +55,7 @@ const playHihat = () => {
 };
 
 const playKick = () => {
-    bassAnim.style.animation = "bass 0.2s linear";
+    bassAnim.style.animation = "bass 0.2s linear"; // add animation
 
     setTimeout(() => {
         bassAnim.style.removeProperty("animation");
@@ -67,8 +67,8 @@ const playKick = () => {
 };
 
 const playRide = () => {
-    rideAnimTop.style.animation = "rideRotate 0.2s linear";
-    rideAnimBottom.style.animation = "rideRotate 0.2s linear";
+    rideAnimTop.style.animation = "rideRotate 0.2s linear"; // add animation
+    rideAnimBottom.style.animation = "rideRotate 0.2s linear"; // add animation
 
     setTimeout(() => {
         rideAnimTop.style.removeProperty("animation");
@@ -81,8 +81,8 @@ const playRide = () => {
 };
 
 const playOpenHat = () => {
-    hihatAnimTop.style.animation = "hihatTopOpen 0.2s linear";
-    hihatAnimBottom.style.animation = "hihatBottomOpen 0.2s linear";
+    hihatAnimTop.style.animation = "hihatTopOpen 0.2s linear"; // add animation
+    hihatAnimBottom.style.animation = "hihatBottomOpen 0.2s linear"; // add animation
 
     setTimeout(() => {
         hihatAnimTop.style.removeProperty("animation");
@@ -95,7 +95,7 @@ const playOpenHat = () => {
 };
 
 const playSnare = () => {
-    snareAnim.style.animation = "tomShake 0.2s linear";
+    snareAnim.style.animation = "tomShake 0.2s linear"; // add animation
 
     setTimeout(() => {
         snareAnim.style.removeProperty("animation");
@@ -113,7 +113,7 @@ const playTink = () => {
 };
 
 const playTom = () => {
-    tomAnim.style.animation = "tomShake 0.2s linear";
+    tomAnim.style.animation = "tomShake 0.2s linear"; // add animation
 
     setTimeout(() => {
         tomAnim.style.removeProperty("animation");
@@ -124,7 +124,7 @@ const playTom = () => {
     tom.play();
 };
 
-// Mapping over child nodes of the key container and adds event listener to each key.
+// Iterating (looping) over child nodes of the key container and adds event listener to each key.
 keysContainer.childNodes.forEach((key, index) => {
     key.addEventListener("click", () => {
         switch (index) {
@@ -159,6 +159,7 @@ keysContainer.childNodes.forEach((key, index) => {
     });
 });
 
+// Event listeners for clicking on the drums
 bassAnim.addEventListener("click", playBase);
 hihatAnimBottom.addEventListener("click", playHihat);
 hihatAnimTop.addEventListener("click", playOpenHat);

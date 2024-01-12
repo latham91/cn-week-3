@@ -15,13 +15,11 @@ const cardValues = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q",
 const suitColors = ["black", "black", "red", "red"];
 let score = 0;
 
-for (let i = 0; i < 4; i++) {}
-
 // Functions
 const generateCard = () => {
-    // This function just creates a new random card.
-    const randomSuit = Math.floor(Math.random() * 4);
-    const randomValue = Math.floor(Math.random() * 12);
+    // This function just creates a new random card and returns an object with the card's suit, value, and color.
+    const randomSuit = Math.floor(Math.random() * 4); // chooses a random suit.
+    const randomValue = Math.floor(Math.random() * 12); // chooses a random card value
 
     return {
         suit: suits[randomSuit],
@@ -33,11 +31,13 @@ const generateCard = () => {
 const changeRightCard = (rightCard) => {
     // This changes the right card styles to the values of rightCard object.
     rightCardValue.forEach((element) => {
+        // this loops through the right card value and changes the styles and text content.
         element.textContent = rightCard.value;
         element.style.color = rightCard.color;
     });
 
     rightCardSuit.forEach((element) => {
+        // this loops through the right card suit and changes the styles and text content.
         element.textContent = rightCard.suit;
         element.style.color = rightCard.color;
     });
@@ -46,14 +46,33 @@ const changeRightCard = (rightCard) => {
 const changeLeftCard = (leftCard) => {
     // This changes the left card styles to the values of leftCard object.
     leftCardValue.forEach((element) => {
+        // this loops through the left card value and changes the styles and text content.
         element.textContent = leftCard.value;
         element.style.color = leftCard.color;
     });
 
     leftCardSuit.forEach((element) => {
+        // this loops through the left card suit and changes the styles and text content.
         element.textContent = leftCard.suit;
         element.style.color = leftCard.color;
     });
+};
+
+const swapCardsTimeout = (timer) => {
+    return setTimeout(() => {
+        leftCard = rightCard;
+        changeLeftCard(leftCard);
+
+        rightCard = generateCard();
+        rightCardElement.style.backgroundColor = "skyblue";
+        rightCardElement.childNodes.forEach((element) => {
+            element.textContent = "";
+            element.color = "white";
+        });
+
+        higherButton.disabled = false;
+        lowerButton.disabled = false;
+    }, timer);
 };
 
 // Event Listeners
@@ -62,18 +81,22 @@ restartButton.addEventListener("click", () => {
     score = 0;
     scoreHeading.textContent = `SCORE: ${score}`;
 
+    // Disable the buttons for 2 seconds to prevent spamming.
     higherButton.disabled = false;
     lowerButton.disabled = false;
 
+    // Changes the styling of the right card.
     rightCardElement.style.backgroundColor = "skyblue";
     rightCardElement.childNodes.forEach((element) => {
         element.textContent = "";
         element.color = "white";
     });
 
+    // Generate a new left and right card.
     rightCard = generateCard();
     leftCard = generateCard();
 
+    // Change the left card to the new left card.
     changeLeftCard(leftCard);
 });
 
@@ -86,20 +109,10 @@ higherButton.addEventListener("click", () => {
         rightCardElement.style.backgroundColor = "white";
         changeRightCard(rightCard);
 
-        setTimeout(() => {
-            leftCard = rightCard;
-            changeLeftCard(leftCard);
-
-            rightCard = generateCard();
-            rightCardElement.style.backgroundColor = "skyblue";
-            rightCardElement.childNodes.forEach((element) => {
-                element.textContent = "";
-                element.color = "white";
-            });
-
-            higherButton.disabled = false;
-            lowerButton.disabled = false;
-        }, 2000);
+        // This timeout function changes the left card to what was the right card, and generates a new right card.
+        // It then changes the right cards styling to look like a card back.
+        // You can pass the time in ms as an argument to the function.
+        swapCardsTimeout(2000);
     }
 
     if (cardValues.indexOf(rightCard.value) < cardValues.indexOf(leftCard.value)) {
@@ -123,20 +136,10 @@ higherButton.addEventListener("click", () => {
         rightCardElement.style.backgroundColor = "white";
         changeRightCard(rightCard);
 
-        setTimeout(() => {
-            leftCard = rightCard;
-            changeLeftCard(leftCard);
-
-            rightCard = generateCard();
-            rightCardElement.style.backgroundColor = "skyblue";
-            rightCardElement.childNodes.forEach((element) => {
-                element.textContent = "";
-                element.color = "white";
-            });
-
-            higherButton.disabled = false;
-            lowerButton.disabled = false;
-        }, 2000);
+        // This timeout changes the left card to what was the right card, and generates a new right card.
+        // It then changes the right cards styling to look like a card back.
+        // You can pass the time in ms as an argument to the function.
+        swapCardsTimeout(2000);
     }
 });
 
@@ -149,20 +152,10 @@ lowerButton.addEventListener("click", () => {
         rightCardElement.style.backgroundColor = "white";
         changeRightCard(rightCard);
 
-        setTimeout(() => {
-            leftCard = rightCard;
-            changeLeftCard(leftCard);
-
-            rightCard = generateCard();
-            rightCardElement.style.backgroundColor = "skyblue";
-            rightCardElement.childNodes.forEach((element) => {
-                element.textContent = "";
-                element.color = "white";
-            });
-
-            higherButton.disabled = false;
-            lowerButton.disabled = false;
-        }, 2000);
+        // This timeout changes the left card to what was the right card, and generates a new right card.
+        // It then changes the right cards styling to look like a card back.
+        // You can pass the time in ms as an argument to the function.
+        swapCardsTimeout(2000);
     }
 
     if (cardValues.indexOf(rightCard.value) > cardValues.indexOf(leftCard.value)) {
@@ -186,20 +179,10 @@ lowerButton.addEventListener("click", () => {
         rightCardElement.style.backgroundColor = "white";
         changeRightCard(rightCard);
 
-        setTimeout(() => {
-            leftCard = rightCard;
-            changeLeftCard(leftCard);
-
-            rightCard = generateCard();
-            rightCardElement.style.backgroundColor = "skyblue";
-            rightCardElement.childNodes.forEach((element) => {
-                element.textContent = "";
-                element.color = "white";
-            });
-
-            higherButton.disabled = false;
-            lowerButton.disabled = false;
-        }, 2000);
+        // This timeout changes the left card to what was the right card, and generates a new right card.
+        // It then changes the right cards styling to look like a card back.
+        // You can pass the time in ms as an argument to the function.
+        swapCardsTimeout(2000);
     }
 });
 
@@ -209,4 +192,5 @@ rightCardElement.style.backgroundColor = "skyblue";
 let leftCard = generateCard();
 let rightCard = generateCard();
 
+// Change the left card to the new left card but leaves the right card as a card back.
 changeLeftCard(leftCard);
