@@ -1,10 +1,11 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
-const grid = 40;
-canvas.height = 32 * grid;
-canvas.width = 32 * grid;
+const grid = 40; // The size of each grid square
+canvas.height = 32 * grid; // 32 grid squares high
+canvas.width = 32 * grid; // 32 grid squares wide
 
+// This is the snake object which will contain the x and y coordinates of each segment of the snake.
 const snake = [
     {
         // This is the head of the snake.
@@ -24,7 +25,9 @@ let food = {
 let score = 0;
 let direction = "up";
 
+// FUNCTIONS //
 const drawSnake = () => {
+    // This function draws the snake onto the canvas element.
     snake.forEach((segment) => {
         ctx.fillStyle = `rgba(0, 255, 0, ${1 - (snake.indexOf(segment) / snake.length) * 0.5})`;
         ctx.fillRect(segment.x, segment.y, grid, grid);
@@ -32,17 +35,20 @@ const drawSnake = () => {
 };
 
 const drawFood = () => {
+    // This function draws the food onto the canvas element.
     ctx.fillStyle = "red";
     ctx.fillRect(food.x, food.y, grid, grid);
 };
 
 const drawScore = () => {
+    // This function draws the score onto the canvas element.
     ctx.fillStyle = "black";
     ctx.font = "40px Monospace";
     ctx.fillText(`Score: ${score}`, 32, 64);
 };
 
 const moveSnake = () => {
+    // This function has the snake movement logic.
     const head = {
         x: snake[0].x,
         y: snake[0].y,
@@ -73,6 +79,7 @@ const moveSnake = () => {
 };
 
 const drawRestart = () => {
+    // This function draws the game over screen.
     ctx.fillStyle = "black";
     ctx.font = "40px Monospace";
 
@@ -84,12 +91,15 @@ const drawRestart = () => {
 };
 
 const gameOver = () => {
+    // This function checks if the lose conditions are met.
     if (snake[0].x < 0 || snake[0].x >= canvas.width || snake[0].y < 0 || snake[0].y >= canvas.height) {
+        // If the snake goes out of bounds
         drawRestart();
         return true;
     }
 
     for (let i = 1; i < snake.length; i++) {
+        // If the snake hits itself
         if (snake[0].x === snake[i].x && snake[0].y === snake[i].y) {
             drawRestart();
             return true;
@@ -100,6 +110,7 @@ const gameOver = () => {
 };
 
 const gameLoop = () => {
+    // This is the main game loop.
     if (gameOver()) {
         return;
     }
@@ -111,11 +122,12 @@ const gameLoop = () => {
     drawScore();
     moveSnake();
 
-    setTimeout(gameLoop, 100);
+    setTimeout(gameLoop, 100); // The timer fires the gameLoop function every 100ms.
 };
 
-gameLoop();
+gameLoop(); // Initial call to the game loop function.
 
+// Keydown events for the arrow keys and WASD keys.
 document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowUp" || (event.keyCode === 87 && direction != "down")) {
         direction = "up";

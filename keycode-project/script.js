@@ -49,8 +49,10 @@ const charKeyCodes = {
     ENTER: 13,
     BACKSPACE: 8,
     // Needed to add these for the mobile version because the event object wasnt working on mobile.
+    // They are key value pairs for the key and the key code.
 };
 
+// On key down event
 window.addEventListener("keydown", (e) => {
     // Set the text of elements
     eventKey.textContent = e.key;
